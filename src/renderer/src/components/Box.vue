@@ -1,5 +1,4 @@
 <script setup>
-import { error } from 'console';
 import { ref } from 'vue'
 let videoUrl = ref('')
 let videoFile = ref('')
@@ -27,18 +26,14 @@ const handleClick = async (type) => {
       fileType: videoFile.value.type,
       operateType: type
     }
-    try{
-
-      const res = await window.api.transform(fileParams)
+    try {
+      await window.api.transform(fileParams)
+      alert('成功！！！')
+    } catch (e) {
+      alert(e)
     }
-    if(typeof res === 'error'){
-
-    }else{
-
-    }
-    console.log(res)
   } else {
-    alert('请先传入视频文件')
+    alert('请先传入视频文件！！！')
   }
 }
 

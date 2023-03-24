@@ -19,8 +19,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^1.0.3",
     "@electron-toolkit/utils": "^1.0.2",
-    "ffmpeg-static": "^5.1.0",
-    "fluent-ffmpeg": "^2.1.2"
+    "ffmpeg-static": "^5.1.0"
   },
   "devDependencies": {
     "@electron/notarize": "^1.2.3",
@@ -36,5 +35,10 @@
     "prettier": "^2.8.4",
     "vite": "^4.1.4",
     "vue": "^3.2.47"
+  },
+  "build":{
+    "extraResources": [
+      "node_modules/ffmpeg-static/**/*"
+    ]
   }
 }
