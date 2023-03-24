@@ -36,9 +36,11 @@
     "vite": "^4.1.4",
     "vue": "^3.2.47"
   },
-  "build":{
-    "extraResources": [
-      "node_modules/ffmpeg-static/**/*"
-    ]
+  "build": {
+    "asar": false,
+    "extraResources": { 
+      "from": "./silent-audio.mp3",
+      "to": "./silent-audio.mp3"
+    }
   }
 }

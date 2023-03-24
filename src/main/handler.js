@@ -5,6 +5,7 @@ const fs = require('fs')
 const homedir = require('os').homedir()
 const desktopDir = `${homedir}/Desktop`
 const outputFileName = '这是转换好的音乐文件.mp3'
+const silentAudioPath = './resources/silent-audio.mp3'
 
 export const handleTransform = (e, file) => {
   return new Promise((resolve, reject) => {
@@ -29,7 +30,7 @@ export const handleTransform = (e, file) => {
         }
 
         execSync(
-          `${ffmpegPath} -i "concat:silent-audio.mp3|preProcess.mp3" -acodec copy ${desktopDir}/${outputFileName}`
+          `${ffmpegPath} -i "concat:${silentAudioPath}|preProcess.mp3" -acodec copy ${desktopDir}/${outputFileName}`
         )
         fs.unlinkSync('preProcess.mp3')
 
@@ -47,7 +48,7 @@ export const handleTransform = (e, file) => {
         }
 
         execSync(
-          `${ffmpegPath} -i "concat:silent-audio.mp3|preProcess.mp3|silent-audio.mp3" -acodec copy ${desktopDir}/${outputFileName}`
+          `${ffmpegPath} -i "concat:${silentAudioPath}|preProcess.mp3|${silentAudioPath}" -acodec copy ${desktopDir}/${outputFileName}`
         )
         fs.unlinkSync('preProcess.mp3')
 
