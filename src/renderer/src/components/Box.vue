@@ -55,9 +55,6 @@ const handleClick = async (type) => {
         <div class="middle">
           <button @click="handleClick(2)">转换为音频并且<strong>前面</strong>加五秒空白</button>
         </div>
-        <div class="middle">
-          <button @click="handleClick(3)">转换为音频并且<strong>前后</strong>加五秒空白</button>
-        </div>
       </div>
     </div>
   </div>
